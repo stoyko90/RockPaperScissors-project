@@ -13,10 +13,7 @@ function computerPlay()
         {
             return "Scissors";
         }
-      }
-
-      let playerSelection;
-      let computerSelection;  
+      }    
 
       let cresult = 0;
       let presult = 0;
@@ -33,7 +30,7 @@ function computerPlay()
         if (a == "rock" && b == "scissors")
         {
             presult++;
-            return "You win! Rock beats Scissors";f
+            return "You win! Rock beats Scissors";
         }
         if (a == "paper" && b == "rock")
         {
@@ -59,21 +56,59 @@ function computerPlay()
         {
             return "Draw!";
         }
+      }  
+         
+    
+    const p1 = document.querySelector("p");
+    const div = document.createElement("div");        
+    const div2 = document.createElement("div");
+    div.style.whiteSpace = "pre";
+    p1.appendChild(div); 
+    p1.appendChild(div2);   
 
-      }          
+    
+    function clickRock() {
+        if (presult === 5) {
+            return div2.textContent = "You reached 5 points, You win!!!";
+        }
+        else if (cresult === 5) {
+            return div2.textContent = "The computer has reached 5 points, You lose !!!";
+        }
+        else {
+            return div.textContent = playRound("rock", computerPlay()) + "\nplayer: " + presult + " computer: " + cresult;
+        }
+    }
+    function clickPaper() {
+        if (presult === 5) {
+            return div2.textContent = "You reached 5 points, You win!!!";
+        }
+        else if (cresult === 5) {
+            return div2.textContent = "The computer has reached 5 points, You lose !!!";
+        }
+        else {
+            return div.textContent = playRound("rock", computerPlay()) + "\nplayer: " + presult + " computer: " + cresult;
+        }
+    }
+    function clickScissors() {
+        if (presult === 5) {
+            return div2.textContent = "You reached 5 points, You win!!!";
+        }
+        else if (cresult === 5) {
+            return div2.textContent = "The computer has reached 5 points, You lose !!!";
+        }
+        else {
+            return div.textContent = playRound("rock", computerPlay()) + "\nplayer: " + presult + " computer: " + cresult;
+        }
+    }  
+    
+    document.getElementById("rockbtn").addEventListener("click", clickRock);
 
-      function game()
-      {
-          
-          for (let i = 0; i < 5; i++)
-          { 
-              let c = computerPlay();
-              let p = prompt("Please enter: rock, paper or scissors.").toLowerCase();
-              console.log(playRound(p, c));
-              console.log("player: " + presult + " computer: " + cresult);
-              
-          }
-      }
-     game();
-     console.log("total result is player: " + presult + " computer: " + cresult);
+    document.getElementById("paperbtn").addEventListener("click", clickPaper);
+
+    document.getElementById("scissorsbtn").addEventListener("click", clickScissors);
+
+    
+        
+    
+
       
